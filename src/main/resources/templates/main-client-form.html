@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="utf-8" content="text/html">
+    <title>Main-Form-Client</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/my-css.css">
+</head>
+<body>
+
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="выйти"  class="btn btn-outline-danger" />
+</form>
+
+<div class="main-form-client-div-btn">
+    <div th:each="ankate : ${ankats} ">
+        <button
+                class="btn btn-outline-dark main-form-client-btn"
+                th:onclick="'window.location.href = \'' + @{/user/ankate/} + ${ankate.id} + '\''">
+            <p th:text="@{Пройти анкету: } + ${ankate.getName()}"></p>
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

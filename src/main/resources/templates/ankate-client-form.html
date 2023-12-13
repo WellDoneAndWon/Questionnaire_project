@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Аnkate</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/my-css.css">
+</head>
+<body>
+
+<div>
+    <h5>анкета:</h5>
+    <h3 th:text="${ankate.name}" class="pACF"></h3><br>
+</div>
+
+<div>
+    <form th:action="@{/user/processing-form}">
+        <input type="hidden" name="id_ankate" th:value="${ankate.id}">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Вопрос</th>
+                    <th>Ответ</th>
+                </tr>
+            </thead>
+            <div th:each="question, iterStat : ${ankate.getQuestions()}" >
+                <tr>
+                    <td th:text="${question.getTextQuestion}"></td>
+                    <td>
+                        <input type="checkbox" class="myCheckBox" th:name="${iterStat.index}">
+                    </td>
+                </tr>
+            </div>
+        </table>
+        <input type="submit" class="btn btn-outline-primary myOkACFBtn" value="oк">
+    </form>
+</div>
+
+<button class="btn btn-outline-secondary myOkACFBtn"
+        th:onclick="'window.location.href = \'' + @{/user/cancel} + '\''">
+    cancel
+</button>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/my-css.css">
+</head>
+<body>
+
+<table class="table">
+    <tr>
+        <th>id клиентa</th>
+        <th>Имя клиентa</th>
+        <th>Время прохождения анкеты</th>
+        <th>Oтветы</th>
+    </tr>
+    <div th:each="history : ${histories}">
+        <tr>
+            <td th:text="${history.getUser().getId()}"></td>
+            <td th:text="${history.getUser().getUsername()}"></td>
+            <td th:text="${history.localDateTime}"></td>
+            <td th:text="${history.answer}"></td>
+        </tr>
+    </div>
+</table>
+
+<div style="margin-left: 30%;">
+    <button class="btn btn-outline-secondary size1-btn-admin-form"
+            th:onclick="'window.location.href = \'' + @{/admin/cancel} + '\''">
+        cancel
+    </button>
+</div>
+
+</body>
+</html>

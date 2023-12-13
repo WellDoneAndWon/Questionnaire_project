@@ -1,0 +1,38 @@
+
+
+//MySQL DB
+//create database my_db4; drop table my_db4.user
+
+CREATE TABLE my_db4.ankete (
+   id int NOT NULL AUTO_INCREMENT,
+   name varchar(50) NOT NULL,
+   PRIMARY KEY (id)
+)
+
+CREATE TABLE my_db4.question (
+  id int NOT NULL AUTO_INCREMENT,
+  question varchar(200) NOT NULL,
+  answer int NOT NULL,
+  ankete_id int NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (ankete_id) REFERENCES my_db4.ankete(id)
+);
+
+CREATE TABLE my_db4.users (
+  id int NOT NULL AUTO_INCREMENT,
+  username varchar(50) NOT NULL,
+  password varchar(100) NOT NULL,
+  enabled varchar(50)  NOT NULL,
+  role varchar(30) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE my_db4.history (
+  id int NOT NULL AUTO_INCREMENT,
+  id_users int NOT NULL,
+  id_ankate int NOT NULL,
+  answer varchar(300) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_users) REFERENCES my_db4.users(id),
+  FOREIGN KEY (id_ankate) REFERENCES my_db4.ankete(id)
+);

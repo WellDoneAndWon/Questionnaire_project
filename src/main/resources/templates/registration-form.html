@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/my-css.css">
+    <script src="/js/registration.js"></script>
+    <title>Форма регистрации</title>
+</head>
+<body class="body-reg">
+<h1 class="h1-reg-form">Форма регистрации!</h1>
+
+<div class="my-form-reg">
+    <form name="registration-form" th:action="@{/reg/registration/setting}" method="post" onsubmit="return validationForm()">
+        <input type="text" name="username" class="form-control" placeholder="введите имя(логин)"><br>
+        <input type="password" name="password" class="form-control" placeholder="введите пароль"><br>
+        <label>Зарегестрироваться как Admin: </label>
+        <input type="checkbox" name="isAdmin" class="checkbox-reg-form"><br>
+        <input type="submit" value="reg" class="btn btn-outline-success btn-form"><br>
+    </form>
+</div>
+
+<button class="btn btn-outline-secondary size1-btn-cancel-reg-form"
+        th:onclick="'window.location.href = \'' + @{/reg/cancel} + '\''">
+    cancel
+</button>
+
+</body>
+</html>

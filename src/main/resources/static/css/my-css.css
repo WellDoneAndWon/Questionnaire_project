@@ -1,0 +1,90 @@
+.div-btn-add-delete-main-admin-form {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    margin-left: 40%;
+}
+
+.all-contest-main-admin-form{
+    margin-top: 5px;
+    width: 800px;
+    margin-left: 25%;
+}
+
+.table-head{
+    margin-left: 20%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.one-ankate{
+    border: 4px double black;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.add-ankate-or-question{
+    margin-left: 30%;
+    width: 400px;
+}
+
+.size1-btn-admin-form{
+    margin: 5px 0px 5px 0px;
+    width: 400px;
+}
+
+
+.main-form-client-div-btn{
+    margin-left: 30%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.main-form-client-btn{
+    margin-top: 5px;
+    width: 600px;
+    height: 80px;
+}
+
+.myCheckBox{
+    width: 30px;
+    height: 30px;
+}
+
+.myOkACFBtn{
+    margin-top: 5px;
+    margin-left: 40%;
+    width: 300px;
+}
+
+.pACF {
+    margin-left: 5px;
+}
+
+.my-form-reg {
+    width: 300px;
+    margin-left: 40%;
+}
+
+.checkbox-reg-form{
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+}
+
+.btn-form {
+    width: 300px;
+}
+
+.body-reg{
+    background: #EBEBEB;
+}
+
+.size1-btn-cancel-reg-form{
+    margin-left: 40%;
+    width: 300px;
+    margin-top: 5px;
+}
+
+.h1-reg-form{
+    margin-left: 40%;
+}

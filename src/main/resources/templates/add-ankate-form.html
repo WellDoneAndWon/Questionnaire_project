@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add-ankate-form</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/my-css.css">
+    <script src = "/js/checkFieldFilled.js"></script>
+    <style>
+        .main-div {
+            margin-left: 40%;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="add-ankate-or-question main-div" >
+    <form th:action="@{/admin/add-ankate}" method="post" name="form" onsubmit="return сheckFieldFilled();">
+        <input type="text" name="anketeName" placeholder="введите имя анкеты:" class="form-control">
+        <input type="submit" name="ok" class="btn btn-outline-success size1-btn-admin-form">
+    </form>
+    <button class="btn btn-outline-secondary size1-btn-admin-form"
+            th:onclick="'window.location.href = \'' + @{/admin/cancel} + '\''">
+        cancel
+    </button>
+</div>
+
+</body>
+</html>

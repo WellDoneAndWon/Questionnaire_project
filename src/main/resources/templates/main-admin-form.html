@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="utf-8" content="text/html">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/my-css.css">
+    <title>Main-admin-form</title>
+    <style>
+        .btn-x {
+            text-align: right;
+        }
+
+        .div-form {
+            width: 600px;
+        }
+
+        .btn-div-pudding {
+            margin-bottom: 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="выйти" class="btn btn-outline-danger"/>
+</form>
+
+<br>
+
+<div class="btn-x">
+    <big th:text="${startStop}"/>
+    <br>
+    <form th:action="@{/admin/start-stop}" method="POST">
+        <select class="form-select form-select-lg mb-3 div-form" aria-label=".form-select-lg example" name="result">
+            <option th:value="true">Начать выполнение</option>
+            <option th:value="false">Завершить выполнение</option>
+        </select>
+        <br>
+        <input class="btn btn-primary div-form btn-div-pudding"
+               type="submit"
+               name="ok">
+        <br>
+        <button class="btn btn-dark div-form btn-div-pudding"
+                type="reset">
+            Cancel
+        </button>
+    </form>
+</div>
+
+
+<div class="all-contest-main-admin-form">
+    <button class="btn btn-outline-success"
+            th:onclick="'window.location.href = \'' + @{/admin} + @{/add-ankate} + '\''">
+        Добавить анкету
+    </button>
+    <button class="btn btn-outline-danger"
+            th:onclick="'window.location.href = \'' + @{/admin} + @{/delete-all} + '\''">
+        Удалить все
+    </button>
+</div>
+
+<div class="all-contest-main-admin-form">
+    <div th:each="ankate : ${ankats}">
+        <div class="one-ankate">
+            <div class="table-head">
+                <p style="margin-left: 30%" th:text="${ankate.name}"></p>
+                <button th:onclick="'window.location.href = \'' + @{/admin} + @{/add-question/} + ${ankate.id} + '\''"
+                        class="btn btn-success">
+                    Добавить запись
+                </button>
+                <button th:onclick="'window.location.href = \'' + @{/admin/delete-ankate/} + ${ankate.id} + '\''"
+                        class="btn btn-danger">
+                    Удалить анкету
+                </button>
+                <button th:onclick="'window.location.href = \''+ @{/admin} + @{/ankate-history/} + ${ankate.id} + '\''"
+                        class="btn btn-info">
+                    Посмотреть результаты
+                </button>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Вопрос</th>
+                    <th>Удалить</th>
+                    <th>Изменить</th>
+                </tr>
+                </thead>
+                <div th:each="question : ${ankate.getQuestions()} ">
+                    <tr>
+                        <td th:text="${question.getTextQuestion()}"></td>
+                        <td>
+                            <button th:onclick="'window.location.href = \'' + @{/admin} + @{/delete/} +
+                                ${ankate.id}  + '/' + ${question.id} + '\''"
+                                    class="btn btn-secondary">
+                                удалить запись
+                            </button>
+                        </td>
+                        <td>
+                            <button th:onclick="'window.location.href = \'' + @{/admin} + @{/update/}
+                                + ${question.id} + '\''"
+                                    class="btn btn-warning">
+                                обновить запись
+                            </button>
+                        </td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
